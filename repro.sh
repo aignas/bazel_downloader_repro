@@ -5,4 +5,5 @@ cat README.md |
     sed "s/\$ //g" |
     grep -v "bazel info" |
     grep -v "uname -a" |
-    xargs -I{} -L1 bash -c "{}"
+    grep -v "repro.sh" |
+    xargs -I{} bash -c "{}"
