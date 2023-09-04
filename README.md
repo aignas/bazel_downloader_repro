@@ -187,3 +187,70 @@ Loading: 0 packages loaded
 ### Mac
 
 On Mac the `--experimental_downloader_config` has no effect when running under `bzlmod`.
+
+```console
+$ ./repro.sh
++ cat README.md
++ grep '^\$'
++ sed 's/$ //g'
++ grep -v 'bazel info'
++ grep -v 'uname -a'
++ grep -v repro.sh
++ xargs '-I{}' bash -c '{}'
+2023/09/05 08:56:44 Using unreleased version at commit 290fc80a5aae9dea06de52deed7098a5b8443f26
+2023/09/05 08:56:44 Downloading https://storage.googleapis.com/bazel-builds/artifacts/macos/290fc80a5aae9dea06de52deed7098a5b8443f26/bazel...
+Extracting Bazel installation...
+Starting local Bazel server and connecting to it...
+INFO: Starting clean.
+INFO: Output base moved to /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7_tmp_55065_4b41858a-6bf4-4fde-aa58-95c67c27cb53 for deletion
+2023/09/05 08:57:02 Using unreleased version at commit 290fc80a5aae9dea06de52deed7098a5b8443f26
+Starting local Bazel server and connecting to it...
+WARNING: Download from https://company-artifactory.com/artifactory/github-releases/bazelbuild/rules_python/releases/download/0.23.1/rules_python-0.23.1.tar.gz failed: class com.google.devtools.build.lib.bazel.repository.downloader.UnrecoverableHttpException Unknown host: company-artifactory.com
+INFO: Repository rules_python instantiated at:
+  /Users/ignas.anikevicius/src/github/aignas/bazel_downloader_repro/WORKSPACE:3:13: in <toplevel>
+Repository rule http_archive defined at:
+  /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/external/bazel_tools/tools/build_defs/repo/http.bzl:379:31: in <toplevel>
+ERROR: An error occurred during the fetch of repository 'rules_python':
+   Traceback (most recent call last):
+        File "/private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/external/bazel_tools/tools/build_defs/repo/http.bzl", line 139, column 45, in _http_archive_impl
+                download_info = ctx.download_and_extract(
+Error in download_and_extract: java.io.IOException: Error downloading [https://company-artifactory.com/artifactory/github-releases/bazelbuild/rules_python/releases/download/0.23.1/rules_python-0.23.1.tar.gz] to /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/external/rules_python/temp1006954228130245263/rules_python-0.23.1.tar.gz: Unknown host: company-artifactory.com
+ERROR: /Users/ignas.anikevicius/src/github/aignas/bazel_downloader_repro/WORKSPACE:3:13: fetching http_archive rule //external:rules_python: Traceback (most recent call last):
+        File "/private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/external/bazel_tools/tools/build_defs/repo/http.bzl", line 139, column 45, in _http_archive_impl
+                download_info = ctx.download_and_extract(
+Error in download_and_extract: java.io.IOException: Error downloading [https://company-artifactory.com/artifactory/github-releases/bazelbuild/rules_python/releases/download/0.23.1/rules_python-0.23.1.tar.gz] to /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/external/rules_python/temp1006954228130245263/rules_python-0.23.1.tar.gz: Unknown host: company-artifactory.com
+ERROR: Error computing the main repository mapping: no such package '@rules_python//python': java.io.IOException: Error downloading [https://company-artifactory.com/artifactory/github-releases/bazelbuild/rules_python/releases/download/0.23.1/rules_python-0.23.1.tar.gz] to /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/external/rules_python/temp1006954228130245263/rules_python-0.23.1.tar.gz: Unknown host: company-artifactory.com
+2023/09/05 08:57:06 Using unreleased version at commit 290fc80a5aae9dea06de52deed7098a5b8443f26
+INFO: Starting clean.
+INFO: Output base moved to /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7_tmp_55076_1d48f5d8-228f-48a8-a2f0-b91cad83d961 for deletion
+2023/09/05 08:57:07 Using unreleased version at commit 290fc80a5aae9dea06de52deed7098a5b8443f26
+Starting local Bazel server and connecting to it...
+INFO: All external dependencies fetched successfully.
+Loading: 1 packages loaded
+2023/09/05 08:57:15 Using unreleased version at commit 290fc80a5aae9dea06de52deed7098a5b8443f26
+INFO: Starting clean.
+INFO: Output base moved to /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7_tmp_55106_34bd3c93-911e-4d8e-9ad5-4b5d5dd356f0 for deletion
+Starting local Bazel server and connecting to it...
+INFO: Repository rules_python instantiated at:
+  /Users/ignas.anikevicius/src/github/aignas/bazel_downloader_repro/WORKSPACE:3:13: in <toplevel>
+Repository rule http_archive defined at:
+  /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/external/bazel_tools/tools/build_defs/repo/http.bzl:372:31: in <toplevel>
+WARNING: Download from https://company-artifactory.com/artifactory/github-releases/bazelbuild/rules_python/releases/download/0.23.1/rules_python-0.23.1.tar.gz failed: class com.google.devtools.build.lib.bazel.repository.downloader.UnrecoverableHttpException Unknown host: company-artifactory.com
+ERROR: An error occurred during the fetch of repository 'rules_python':
+   Traceback (most recent call last):
+        File "/private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/external/bazel_tools/tools/build_defs/repo/http.bzl", line 132, column 45, in _http_archive_impl
+                download_info = ctx.download_and_extract(
+Error in download_and_extract: java.io.IOException: Error downloading [https://company-artifactory.com/artifactory/github-releases/bazelbuild/rules_python/releases/download/0.23.1/rules_python-0.23.1.tar.gz] to /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/external/rules_python/temp2498886707789242059/rules_python-0.23.1.tar.gz: Unknown host: company-artifactory.com
+ERROR: /Users/ignas.anikevicius/src/github/aignas/bazel_downloader_repro/WORKSPACE:3:13: fetching http_archive rule //external:rules_python: Traceback (most recent call last):
+        File "/private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/external/bazel_tools/tools/build_defs/repo/http.bzl", line 132, column 45, in _http_archive_impl
+                download_info = ctx.download_and_extract(
+Error in download_and_extract: java.io.IOException: Error downloading [https://company-artifactory.com/artifactory/github-releases/bazelbuild/rules_python/releases/download/0.23.1/rules_python-0.23.1.tar.gz] to /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/external/rules_python/temp2498886707789242059/rules_python-0.23.1.tar.gz: Unknown host: company-artifactory.com
+ERROR: Error computing the main repository mapping: no such package '@rules_python//python': java.io.IOException: Error downloading [https://company-artifactory.com/artifactory/github-releases/bazelbuild/rules_python/releases/download/0.23.1/rules_python-0.23.1.tar.gz] to /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/external/rules_python/temp2498886707789242059/rules_python-0.23.1.tar.gz: Unknown host: company-artifactory.com
+2023/09/05 08:57:18 Using unreleased version at commit 290fc80a5aae9dea06de52deed7098a5b8443f26
+Starting local Bazel server and connecting to it...
+INFO: Starting clean.
+INFO: Output base moved to /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7_tmp_55156_64f43e71-84eb-4081-ae54-c19dfbd2b7c2 for deletion
+Starting local Bazel server and connecting to it...
+INFO: All external dependencies fetched successfully.
+Loading: 1 packages loaded
+```
