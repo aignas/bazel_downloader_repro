@@ -2,6 +2,8 @@
 
 See [this Slack thread](https://bazelbuild.slack.com/archives/CA31HN1T3/p1693462264909799) for context.
 
+This can be reproduced with `last_green` and `6.3.2` versions.
+
 ## System info
 
 ```console
