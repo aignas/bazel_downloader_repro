@@ -1,0 +1,2 @@
+common --enable_bzlmod
+common --experimental_downloader_config=.bazel_downloader.cfg
