@@ -2,6 +2,39 @@
 
 See [this Slack thread](https://bazelbuild.slack.com/archives/CA31HN1T3/p1693462264909799) for context.
 
+## System info
+
+```console
+$ uname -a
+Darwin FA21050003 22.5.0 Darwin Kernel Version 22.5.0: Thu Jun  8 22:22:22 PDT 2023; root:xnu-8796.121.3~7/RELEASE_X86_64 x86_64
+
+$ bazel info
+Starting local Bazel server and connecting to it...
+bazel-bin: /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/execroot/_main/bazel-out/darwin-fastbuild/bin
+bazel-genfiles: /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/execroot/_main/bazel-out/darwin-fastbuild/bin
+bazel-testlogs: /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/execroot/_main/bazel-out/darwin-fastbuild/testlogs
+character-encoding: file.encoding = ISO-8859-1, defaultCharset = ISO-8859-1
+command_log: /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/command.log
+committed-heap-size: 268MB
+execution_root: /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/execroot/_main
+gc-count: 4
+gc-time: 22ms
+install_base: /var/tmp/_bazel_ignas.anikevicius/install/3b6d3b89ac6edd12cb24971ba5ddc98f
+java-home: /private/var/tmp/_bazel_ignas.anikevicius/install/3b6d3b89ac6edd12cb24971ba5ddc98f/embedded_tools/jdk
+java-runtime: OpenJDK Runtime Environment (build 11.0.6+10-LTS) by Azul Systems, Inc.
+java-vm: OpenJDK 64-Bit Server VM (build 11.0.6+10-LTS, mixed mode) by Azul Systems, Inc.
+max-heap-size: 4294MB
+output_base: /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7
+output_path: /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/execroot/_main/bazel-out
+package_path: %workspace%
+release: release 6.3.2
+repository_cache: /var/tmp/_bazel_ignas.anikevicius/cache/repos/v1
+server_log: /private/var/tmp/_bazel_ignas.anikevicius/2170a98a6de670b82d7ef712358291b7/java.log.fa21050003.ignas.anikevicius.log.java.20230904-190321.53487
+server_pid: 53487
+used-heap-size: 39MB
+workspace: /Users/ignas.anikevicius/src/github/aignas/bazel_downloader_repro
+```
+
 ## Expected behaviour
 
 It seems that disabling `bzlmod` works as expected:
